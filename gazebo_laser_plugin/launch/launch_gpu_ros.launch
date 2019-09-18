@@ -1,0 +1,9 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find gazebo_laser_plugin)/world/gazebo_ros_gpu_laser.world"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 0 0 0 0 0 1 world laser_sensor 100" />
+</launch>
